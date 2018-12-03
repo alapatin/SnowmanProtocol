@@ -56,15 +56,47 @@
 		D03F710421B5BD54003BB48E /* SnowmanProtocol */ = {
 			isa = PBXGroup;
 			children = (
-				D03F711721B5C09B003BB48E /* Snowman.swift */,
-				D03F710521B5BD54003BB48E /* AppDelegate.swift */,
+				D03F711D21B5C55B003BB48E /* SupportingFiles */,
+				D03F711C21B5C54F003BB48E /* Model */,
+				D03F711B21B5C53C003BB48E /* View */,
+				D03F711A21B5C527003BB48E /* Controller */,
+			);
+			path = SnowmanProtocol;
+			sourceTree = "<group>";
+		};
+		D03F711A21B5C527003BB48E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
 				D03F710721B5BD54003BB48E /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D03F711B21B5C53C003BB48E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D03F711721B5C09B003BB48E /* Snowman.swift */,
 				D03F710921B5BD54003BB48E /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D03F711C21B5C54F003BB48E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D03F711D21B5C55B003BB48E /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				D03F710521B5BD54003BB48E /* AppDelegate.swift */,
 				D03F710C21B5BD57003BB48E /* Assets.xcassets */,
 				D03F710E21B5BD57003BB48E /* LaunchScreen.storyboard */,
 				D03F711121B5BD57003BB48E /* Info.plist */,
 			);
-			path = SnowmanProtocol;
+			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,7 +320,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8HVRV5XJ5T;
-				INFOPLIST_FILE = SnowmanProtocol/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/SnowmanProtocol/SupportingFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -306,7 +338,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8HVRV5XJ5T;
-				INFOPLIST_FILE = SnowmanProtocol/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/SnowmanProtocol/SupportingFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
