@@ -7,6 +7,11 @@
 //
 
 import UIKit
+
+protocol EyesOpening {
+    var isEyesOpen: Bool {get}
+}
+
 //@IBDesignable
 class Snowman: UIView {
     
@@ -19,9 +24,10 @@ class Snowman: UIView {
     //    @IBInspectable var step: Int = 0
     
     
+    var eyesDelegat: EyesOpening?
     
     var scale: CGFloat = 0.95
-    static var isEyesClosed: Bool = true
+//    static var isEyesClosed: Bool = true
     static var mood: Float = 1
     static var leftArmAngle: CGFloat = 2
     static var rightArmAngle: CGFloat = 2
@@ -123,7 +129,7 @@ class Snowman: UIView {
         let eyeCenter = centerOfEye(eye)
         var eyePath = UIBezierPath()
         
-        if Snowman.isEyesClosed {
+        if let _ = eyesDelegat?.isEyesOpen {
             eyePath.move(to: CGPoint(x: eyeCenter.x - eyeRadius, y: eyeCenter.y))
             eyePath.addLine(to: CGPoint(x: eyeCenter.x + eyeRadius, y: eyeCenter.y))
             return eyePath
