@@ -9,31 +9,20 @@
 import UIKit
 
 protocol EyesOpening {
-    var isEyesOpen: Bool {get}
+    func openEyes() -> Bool
 }
 
-//@IBDesignable
+
 class Snowman: UIView {
-    
-    //    @IBInspectable var scale: CGFloat = 0.95
-    //    @IBInspectable var isEyesClosed: Bool = true
-    //    @IBInspectable var mood: Float = 1
-    //    @IBInspectable var leftArmAngle: CGFloat = 2
-    //    @IBInspectable var rightArmAngle: CGFloat = 2
-    //    @IBInspectable var fingerAngle: CGFloat = 2
-    //    @IBInspectable var step: Int = 0
-    
     
     var eyesDelegat: EyesOpening?
     
     var scale: CGFloat = 0.95
-//    static var isEyesClosed: Bool = true
     static var mood: Float = 1
     static var leftArmAngle: CGFloat = 2
     static var rightArmAngle: CGFloat = 2
     var fingerAngle: CGFloat = 2
     static var step: Int = 0
-    
     
     
     enum Eye {
@@ -128,8 +117,10 @@ class Snowman: UIView {
         let eyeRadius = headCircleRadius / Constants.headRadiusToEyeRadius
         let eyeCenter = centerOfEye(eye)
         var eyePath = UIBezierPath()
+    
+        let isEyesClosed = eyesDelegat?.openEyes() ?? true
         
-        if let _ = eyesDelegat?.isEyesOpen {
+        if isEyesClosed {
             eyePath.move(to: CGPoint(x: eyeCenter.x - eyeRadius, y: eyeCenter.y))
             eyePath.addLine(to: CGPoint(x: eyeCenter.x + eyeRadius, y: eyeCenter.y))
             return eyePath

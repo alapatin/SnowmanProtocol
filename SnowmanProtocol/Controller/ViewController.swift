@@ -9,12 +9,40 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+   var isEyesOpen: Bool = true
+    var eyesSwitch: Bool = true
+    var eyeCount = 2
 
+    @IBOutlet weak var imageViewSnowman: Snowman! {
+        didSet{
+            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+            imageViewSnowman.addGestureRecognizer(tapGestureRecognizer)
+        }
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
+    @objc func handleTap (sender: UITapGestureRecognizer) {
+        
+        if let viewSnowman = sender.view as? Snowman {
+            isEyesOpen = !isEyesOpen
+            viewSnowman.eyesDelegat = self
+            viewSnowman.setNeedsDisplay()
+        }
+        
+    }
 
 }
 
+extension ViewController: EyesOpening {
+
+    func openEyes() -> Bool {
+        return isEyesOpen
+    }
+    
+}
