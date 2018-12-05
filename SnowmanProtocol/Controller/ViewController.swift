@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var eyeView: UIImageView!
     
     @IBOutlet weak var imageViewSnowman: Snowman!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -28,22 +28,17 @@ class ViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         
-        if let touch = touches.first {
-            startPointGesture = touch.location(in: self.view)
+        guard let touch = touches.first else {return}
+        startPointGesture = touch.location(in: self.view)
+        guard let respondView = self.view.hitTest(startPointGesture, with: nil) else {return}
+        if respondView == eyeView {
             
-            
-            if let respondView = self.view.hitTest(startPointGesture, with: nil) {
-                if respondView == eyeView {
-                    isEyesOpen = !isEyesOpen
-                    
-                    imageViewSnowman.eyesDelegat = self
-                    imageViewSnowman.setNeedsDisplay()
-                }
-            }
-            
+            isEyesOpen = !isEyesOpen
+            imageViewSnowman.eyesDelegat = self
+            imageViewSnowman.setNeedsDisplay()
         }
     }
-
+    
 }
 
 extension ViewController: EyesOpening {
