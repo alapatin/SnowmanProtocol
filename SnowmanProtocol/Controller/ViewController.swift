@@ -11,8 +11,8 @@ import UIKit
 class ViewController: UIViewController {
     
    var isEyesOpen: Bool = true
-    var eyesSwitch: Bool = true
-    var eyeCount = 2
+//    var eyesSwitch: Bool = true
+//    var eyeCount = 2
 
     @IBOutlet weak var imageViewSnowman: Snowman! {
         didSet{
@@ -22,12 +22,18 @@ class ViewController: UIViewController {
     }
     
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+    
 
     @objc func handleTap (sender: UITapGestureRecognizer) {
+        
+//        let respondView = self.view.hitTest(<#T##point: CGPoint##CGPoint#>, with: <#T##UIEvent?#>)
         
         if let viewSnowman = sender.view as? Snowman {
             isEyesOpen = !isEyesOpen
@@ -36,6 +42,8 @@ class ViewController: UIViewController {
         }
         
     }
+    
+    
 
 }
 
